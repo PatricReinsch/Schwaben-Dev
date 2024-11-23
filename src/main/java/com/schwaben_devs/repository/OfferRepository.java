@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface OfferRepository extends CrudRepository<Offer, UUID>{
+    Offer findByMostSpecificRegionID(Integer mostSpecificRegionID);
 }
