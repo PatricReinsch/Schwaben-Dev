@@ -16,6 +16,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -37,25 +40,26 @@ import java.util.UUID;
     Offer.JSON_PROPERTY_HAS_VOLLKASKO,
     Offer.JSON_PROPERTY_FREE_KILOMETERS
 })
-@Generated("io.micronaut.openapi.generator.JavaMicronautServerCodegen")
+@Entity
 public class Offer {
-
-    public static final String JSON_PROPERTY_I_D = "ID";
+    public static final String JSON_PROPERTY_I_D = "OfferID";
     public static final String JSON_PROPERTY_DATA = "data";
-    public static final String JSON_PROPERTY_MOST_SPECIFIC_REGION_I_D = "mostSpecificRegionID";
-    public static final String JSON_PROPERTY_START_DATE = "startDate";
-    public static final String JSON_PROPERTY_END_DATE = "endDate";
-    public static final String JSON_PROPERTY_NUMBER_SEATS = "numberSeats";
-    public static final String JSON_PROPERTY_PRICE = "price";
-    public static final String JSON_PROPERTY_CAR_TYPE = "carType";
-    public static final String JSON_PROPERTY_HAS_VOLLKASKO = "hasVollkasko";
-    public static final String JSON_PROPERTY_FREE_KILOMETERS = "freeKilometers";
+    public static final String JSON_PROPERTY_MOST_SPECIFIC_REGION_I_D = "RegionID";
+    public static final String JSON_PROPERTY_START_DATE = "StartTimestamp";
+    public static final String JSON_PROPERTY_END_DATE = "EndTimestamp";
+    public static final String JSON_PROPERTY_NUMBER_SEATS = "NumberSeats";
+    public static final String JSON_PROPERTY_NUMBER_DAYS = "NumberDays";
+    public static final String JSON_PROPERTY_PRICE = "Price";
+    public static final String JSON_PROPERTY_CAR_TYPE = "CarType";
+    public static final String JSON_PROPERTY_HAS_VOLLKASKO = "HasVollkasko";
+    public static final String JSON_PROPERTY_FREE_KILOMETERS = "FreeKilometers";
 
     /**
      * The unique identifier of the offer
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_I_D)
+    @Id
     private UUID ID;
 
     /**
@@ -70,6 +74,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_MOST_SPECIFIC_REGION_I_D)
+    @Column(name = JSON_PROPERTY_MOST_SPECIFIC_REGION_I_D, nullable = false)
     private Integer mostSpecificRegionID;
 
     /**
@@ -77,6 +82,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_START_DATE)
+    @Column(name = JSON_PROPERTY_START_DATE, nullable = false)
     private Long startDate;
 
     /**
@@ -84,6 +90,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_END_DATE)
+    @Column(name = JSON_PROPERTY_END_DATE, nullable = false)
     private Long endDate;
 
     /**
@@ -91,6 +98,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_NUMBER_SEATS)
+    @Column(name = JSON_PROPERTY_NUMBER_SEATS, nullable = false)
     private Integer numberSeats;
 
     /**
@@ -98,6 +106,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_PRICE)
+    @Column(name = JSON_PROPERTY_PRICE, nullable = false)
     private Integer price;
 
     /**
@@ -105,6 +114,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_CAR_TYPE)
+    @Column(name = JSON_PROPERTY_CAR_TYPE, nullable = false)
     private String carType;
 
     /**
@@ -112,6 +122,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_HAS_VOLLKASKO)
+    @Column(name = JSON_PROPERTY_HAS_VOLLKASKO, nullable = false)
     private Boolean hasVollkasko;
 
     /**
@@ -119,6 +130,7 @@ public class Offer {
      */
     @NonNull
     @JsonProperty(JSON_PROPERTY_FREE_KILOMETERS)
+    @Column(name = JSON_PROPERTY_FREE_KILOMETERS, nullable = false)
     private Integer freeKilometers;
 
     public Offer(UUID ID, byte[] data, Integer mostSpecificRegionID, Long startDate, Long endDate, Integer numberSeats, Integer price, String carType, Boolean hasVollkasko, Integer freeKilometers) {
@@ -132,6 +144,10 @@ public class Offer {
         this.carType = carType;
         this.hasVollkasko = hasVollkasko;
         this.freeKilometers = freeKilometers;
+    }
+
+    public Offer() {
+
     }
 
     /**

@@ -4,13 +4,19 @@ import com.schwaben_devs.model.CreateOffersRequest;
 import com.schwaben_devs.model.GetOffers200Response;
 import com.schwaben_devs.model.GetOffersCarTypeParameter;
 import com.schwaben_devs.model.GetOffersSortOrderParameter;
+import com.schwaben_devs.repository.OfferRepository;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.http.annotation.*;
+import jakarta.inject.Inject;
 
 import java.math.BigDecimal;
 
 @Controller("/api/offers")
 public class ChallengeController {
+
+    @Inject
+    private OfferRepository offerRepository;
+
     @Delete
     public void cleanupData() {
         System.out.println("Cleaning up Data");
@@ -19,7 +25,7 @@ public class ChallengeController {
     @Post
     public void createOffers(@Body CreateOffersRequest createOffersRequest
     ) {
-        System.out.println("Creating Offers");
+        offerRepository.saveAll(createOffersRequest.getOffers());
     }
 
     @Get
