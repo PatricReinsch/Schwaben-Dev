@@ -21,6 +21,13 @@
     <micronaut.aot.enabled>false</micronaut.aot.enabled>
     <micronaut.aot.packageName>com.schwaben_devs.aot.generated</micronaut.aot.packageName>
     <exec.mainClass>com.schwaben_devs.Application</exec.mainClass>
+    <micronaut.openapi.generate.server>true</micronaut.openapi.generate.server>
+    <micronaut.openapi.definition>src/main/resources/library-definition.yml</micronaut.openapi.definition>
+    <micronaut.openapi.api.package.name>com.schwaben_devs.motomatch.api</micronaut.openapi.api.package.name>
+    <micronaut.openapi.model.package.name>com.schwaben_devs.motomatch.model</micronaut.openapi.model.package.name>
+    <micronaut.openapi.invoker.package.name>com.schwaben_devs.motomatch.example</micronaut.openapi.invoker.package.name>
+    <micronaut.openapi.use.reactive>false</micronaut.openapi.use.reactive>
+    <micronaut.openapi.server.use.auth>false</micronaut.openapi.server.use.auth>
   </properties>
 
   <repositories>
@@ -31,6 +38,11 @@
   </repositories>
 
   <dependencies>
+    <dependency>
+      <groupId>jakarta.validation</groupId>
+      <artifactId>jakarta.validation-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-http-server-netty</artifactId>
